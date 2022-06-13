@@ -33,7 +33,8 @@ app.post("/", function(req, res) {
     }]
   };
   const jsonData = JSON.stringify(data);
-  const url = "https://us8.api.mailchimp.com/3.0/lists/514df8762ce4"; //In place of << 514df8762ce4 >> goes you Mailchimp list ID
+  //API endpoint
+  const url = "https://us8.api.mailchimp.com/3.0/lists/514dfr8762ce4"; //In place of << 514dfr8762ce4 >> goes you Mailchimp list ID
   const options = {
     method: "post",
     auth: "ashmit4818:dbf8652906e00170erghffa2accdab102ca-us8"  // In place of << dbf8652906e00170erghffa2accdab102ca-us8 >> goes you Mailchimp API key
