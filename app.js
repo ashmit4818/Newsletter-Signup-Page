@@ -1,11 +1,11 @@
-//this code is written by Ashmit4818
+//This code is written by Ashmit4818
 const express = require("express");
 const bodyparser = require("body-parser");
 const request = require("request");
 const https = require("https");
 const app = express();
 
-app.use(express.static("public"));
+app.use(express.static("public")); //used to host static files 
 app.use(bodyparser.urlencoded({
   extended: true
 }));
@@ -17,26 +17,26 @@ app.get("/", function(req, res) {
 
 
 app.post("/", function(req, res) {
-  //storing the sign up info into vatriables by using body parser.
+  //storing the sign up info into variables by using body parser module.
   const firstname = req.body.firstName;
   const lastname = req.body.lastName
   const eMAIL = req.body.eMail;
 
   const data = {
-    members: [{ //An array of objects, each representing an email address and the subscription status for a specific list
+    members: [{ 
       email_address: eMAIL,
       status: "subscribed",
-      merge_fields: { //A dictionary of merge fields where the keys are the merge tags.
+      merge_fields: { 
         FNAME: firstname,
         LNAME: lastname
       }
     }]
   };
   const jsonData = JSON.stringify(data);
-  const url = "https://us8.api.mailchimp.com/3.0/lists/514df8762c";
+  const url = "https://us8.api.mailchimp.com/3.0/lists/514df8762ce4"; //In place of << 514df8762ce4 >> goes you Mailchimp list ID
   const options = {
     method: "post",
-    auth: "ashmit4818:dbf8652906e00170effa2accdab102ca-us8"
+    auth: "ashmit4818:dbf8652906e00170erghffa2accdab102ca-us8"  // In place of << dbf8652906e00170erghffa2accdab102ca-us8 >> goes you Mailchimp API key
   }
 
   const request = https.request(url, options, function(response) {
